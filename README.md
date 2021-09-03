@@ -1,7 +1,7 @@
 # Eva
 Python module, for speech recognition and ordering
 
-# Setting up the environment:
+### Setting up the environment:
 1) installing python3
 2) installing lib SpeechRecognition:
 ```
