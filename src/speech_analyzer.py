@@ -21,6 +21,7 @@ def record_and_recognize_audio(*args: tuple):
             print("Can you check if your microphone is on, please?")
             return
 
+        #recognized_data = translate_audio_in_text(audio)
         # использование online-распознавания через Google 
         try:
             print("Started recognition...")
@@ -35,6 +36,21 @@ def record_and_recognize_audio(*args: tuple):
 
         return recognized_data
 
+# def translate_audio_in_text(audio):
+#     recognized_data = ""
+#     # использование online-распознавания через Google 
+#     try:
+#         print("Started recognition...")
+#         recognized_data = recognizer.recognize_google(audio, language="ru").lower()
+
+#     except speech_recognition.UnknownValueError:
+#         pass
+
+#     # в случае проблем с доступом в Интернет происходит выброс ошибки
+#     except speech_recognition.RequestError:
+#         print("Check your Internet Connection, please")
+#     return recognized_data
+
 if __name__ == "__main__":
 
     # инициализация инструментов распознавания и ввода речи
@@ -44,4 +60,4 @@ if __name__ == "__main__":
     while True:
         # старт записи речи с последующим выводом распознанной речи 
         voice_input = record_and_recognize_audio()
-        print(voice_input)
+        print("=>",voice_input)
