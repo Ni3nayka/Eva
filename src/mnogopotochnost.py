@@ -1,25 +1,25 @@
-'''
-Info:
-https://zen.yandex.ru/media/id/5c1a663bb6a0da00aac86ae4/python-vstroennye-funkcii-chr--ord--30-5ce56aec25bf1600b3965727
-https://python-scripts.com/threading
-'''
-
-from time import sleep
+from speech_analyzer import record_and_recognize_audio
 from threading import Thread
 
-class test(Thread):
+class audio_ii(Thread):
     
     def __init__(self): 
         Thread.__init__(self)
+        # инициализация инструментов распознавания и ввода речи
+        #self.recognizer = speech_recognition.Recognizer()
+        #self.microphone = speech_recognition.Microphone()
+        self.cache = []
     
-    def run(self): # Запуск потока
-        # выполняется один раз
-        sleep(1)
-        print("test")
+    def run(self):
+        while True:
+            # старт записи речи с последующим выводом распознанной речи 
+            voice_input = record_and_recognize_audio()#self.recognizer,self.microphone)
+            print("=>",voice_input)
+            if voice_input!=None and voice_input!="": self.cache.append(voice_input)
 
-if __name__ == "__main__":
-    #main()
-    potok = test()
-    potok.start()
-    #potok.start()
-    print("main")
+    def read(self):
+        if len(self.cache)>0:
+            a = self.cache[0]
+            del self.cache[0]
+            return a
+        else: return None
