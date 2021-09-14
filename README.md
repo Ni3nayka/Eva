@@ -7,6 +7,10 @@ Python module, for speech recognition and ordering
 ```
 pip install SpeechRecognition
 ```
+3) installing lib pyAudio (find your python version and bit depth):
+```
+pip install SpeechRecognition
+```
 or 
 ```
 https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio
@@ -24,3 +28,8 @@ project_folder:
     your_main.py
 ```
 see the examples of main_program in the "examples" folder
+
+## installation information:
+```
+https://www.youtube.com/watch?v=GcqhuGQuFnM
+```
